@@ -25,7 +25,6 @@ public class Card {
 	/** The level. */
 	private int level;
 	
-	
 	/** The deck. */
 	private Deck deck;
 	

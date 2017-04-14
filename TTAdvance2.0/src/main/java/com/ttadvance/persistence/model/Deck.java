@@ -1,6 +1,5 @@
 package com.ttadvance.persistence.model;
 
-// TODO: Auto-generated Javadoc
 /**
  * Class that models a Deck of cards.
  *

@@ -1,6 +1,5 @@
 package com.ttadvance.business.dto;
 
-// TODO: Auto-generated Javadoc
 /**
  * Class that models a Deck of cards.
  *

@@ -13,8 +13,20 @@ public class GameDTO {
 	/** The host player id. */
 	private long hostPlayerId;
 	
+	/** The host payer hand card ids. */
+	private long[] hostPayerHandCardIds;
+	
 	/** The challenger played id. */
-	private long challengerPlayedId;
+	private long challengerPlayerId;
+	
+	/** The challenger player card ids. */
+	private long[] challengerPlayerCardIds;
+	
+	/** The player to move id. */
+	private long playerToMoveId;
+	
+	/** The first player to move id. */
+	private long firstPlayerToMoveId;
 	
 	/** The game matrix. */
 	private PlayerMoveDTO[][] gameMatrix;
@@ -60,17 +72,17 @@ public class GameDTO {
 	 *
 	 * @return the challenger played id
 	 */
-	public long getChallengerPlayedId() {
-		return challengerPlayedId;
+	public long getChallengerPlayerId() {
+		return challengerPlayerId;
 	}
 
 	/**
 	 * Sets the challenger played id.
 	 *
-	 * @param challengerPlayedId the new challenger played id
+	 * @param challengerPlayerId the new challenger player id
 	 */
-	public void setChallengerPlayedId(long challengerPlayedId) {
-		this.challengerPlayedId = challengerPlayedId;
+	public void setChallengerPlayerId(long challengerPlayerId) {
+		this.challengerPlayerId = challengerPlayerId;
 	}
 
 	/**
@@ -89,6 +101,78 @@ public class GameDTO {
 	 */
 	public void setGameMatrix(PlayerMoveDTO[][] gameMatrix) {
 		this.gameMatrix = gameMatrix;
+	}
+
+	/**
+	 * Gets the player to move id.
+	 *
+	 * @return the player to move id
+	 */
+	public long getPlayerToMoveId() {
+		return playerToMoveId;
+	}
+
+	/**
+	 * Sets the player to move id.
+	 *
+	 * @param playerToMoveId the new player to move id
+	 */
+	public void setPlayerToMoveId(long playerToMoveId) {
+		this.playerToMoveId = playerToMoveId;
+	}
+
+	/**
+	 * Gets the first player to move id.
+	 *
+	 * @return the first player to move id
+	 */
+	public long getFirstPlayerToMoveId() {
+		return firstPlayerToMoveId;
+	}
+
+	/**
+	 * Sets the first player to move id.
+	 *
+	 * @param firstPlayerToMoveId the new first player to move id
+	 */
+	public void setFirstPlayerToMoveId(long firstPlayerToMoveId) {
+		this.firstPlayerToMoveId = firstPlayerToMoveId;
+	}
+
+	/**
+	 * Gets the host payer hand card ids.
+	 *
+	 * @return the host payer hand card ids
+	 */
+	public long[] getHostPayerHandCardIds() {
+		return hostPayerHandCardIds;
+	}
+
+	/**
+	 * Sets the host payer hand card ids.
+	 *
+	 * @param hostPayerHandCardIds the new host payer hand card ids
+	 */
+	public void setHostPayerHandCardIds(long[] hostPayerHandCardIds) {
+		this.hostPayerHandCardIds = hostPayerHandCardIds;
+	}
+
+	/**
+	 * Gets the challenger player card ids.
+	 *
+	 * @return the challenger player card ids
+	 */
+	public long[] getChallengerPlayerCardIds() {
+		return challengerPlayerCardIds;
+	}
+
+	/**
+	 * Sets the challenger player card ids.
+	 *
+	 * @param challengerPlayerCardIds the new challenger player card ids
+	 */
+	public void setChallengerPlayerCardIds(long[] challengerPlayerCardIds) {
+		this.challengerPlayerCardIds = challengerPlayerCardIds;
 	}
 	
 }

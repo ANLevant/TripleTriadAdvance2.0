@@ -1,0 +1,30 @@
+<html ng-app="TTAdvance">
+  <head>
+    <!-- External Dependencies -->
+    <script src="../node_modules/angular/angular.js"></script>
+    <script src="../node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/sockjs/1/sockjs.min.js"></script>
+    <script src="../node_modules/stompjs/stomp.js"></script>
+
+    <!-- Config -->
+    <script src="../js/config/app.js"></script>
+    <script src="../js/config/stateConfig.js"></script>
+    <script src="../js/config/run.js"></script>
+
+    <!-- Util -->
+    <script src="../js/util/constants.js"></script>
+
+    <!-- Factories -->
+    <script src="../js/factory/stompCommunicationFactory.js"></script>
+
+    <!-- Services -->
+    <script src="../js/service/gameboardService.js"></script>
+
+    <!-- Controllers -->
+    <script src="../js/controller/gameboardController.js"></script>
+
+  </head>
+  <body>
+    <ui-view></ui-view>
+  </body>
+</html>

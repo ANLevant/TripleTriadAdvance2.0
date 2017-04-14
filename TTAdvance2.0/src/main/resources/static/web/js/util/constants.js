@@ -1,0 +1,19 @@
+TTAdvance.constant('TTADVANCE_CONSTANTS',
+{
+  WEBSOCKET_RESOURCES:
+  {
+    SERVER_URL:'http://localhost:8080/stomp',
+    GAME:
+    {
+      TRANSMISSION_URLS:
+      {
+        MAKE_MOVE:'/ws/game/:gameId/makeMove'
+      },
+      RECEPTION_URLS:
+      {
+        WATCH_GAME:'/topic/game/:gameId'
+      }
+
+    }
+  }
+});
