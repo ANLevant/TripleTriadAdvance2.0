@@ -9,11 +9,13 @@ import com.ttadvance.business.dto.GameRulesDTO;
 public interface IGameService {
 	
 	/**
-	 * Creates a game.
+	 * Creates a new game.
 	 *
 	 * @param playerId the player id
 	 * @param gameRules the game rules
 	 * @return the game DTO
 	 */
 	public GameDTO createGame(long playerId, GameRulesDTO gameRules);
+	
+	public GameDTO findGame(long gameId);
 }

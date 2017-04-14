@@ -1,16 +1,27 @@
 package com.ttadvance.persistence.model;
 
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
 /**
  * Class to model a Card.
  *
  * @author Levant, ID = 48774
  */
+@Entity(name="CARD")
 public class Card {
 	
 	/** The id. */
+	@Id
+	@GeneratedValue
 	private long id;
 	
 	/** The top value. */
+	
 	private int topValue;
 	
 	/** The bottom value. */
@@ -26,6 +37,7 @@ public class Card {
 	private int level;
 	
 	/** The deck. */
+	@ManyToOne(targetEntity=Deck.class, fetch=FetchType.EAGER)
 	private Deck deck;
 	
 	/**

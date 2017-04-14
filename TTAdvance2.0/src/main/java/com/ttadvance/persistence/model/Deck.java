@@ -1,20 +1,31 @@
 package com.ttadvance.persistence.model;
 
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
 /**
  * Class that models a Deck of cards.
  *
  * @author Levant, Id = 48774
  */
+@Entity(name="DECK")
 public class Deck {
 	
 	/** The id. */
+	@Id
+	@GeneratedValue
 	private long id;
 	
 	/** The name. */
 	private String name;
 	
-	/** The cards in deck. */
-	private long cardsInDeck;
+	@OneToMany(targetEntity=Card.class, mappedBy="deck", fetch=FetchType.EAGER)
+	private List<Card> deck;
 	
 	/**
 	 * Gets the id.
@@ -50,24 +61,6 @@ public class Deck {
 	 */
 	public void setName(String name) {
 		this.name = name;
-	}
-	
-	/**
-	 * Gets the cards in deck.
-	 *
-	 * @return the cards in deck
-	 */
-	public long getCardsInDeck() {
-		return cardsInDeck;
-	}
-	
-	/**
-	 * Sets the cards in deck.
-	 *
-	 * @param cardsInDeck the new cards in deck
-	 */
-	public void setCardsInDeck(long cardsInDeck) {
-		this.cardsInDeck = cardsInDeck;
 	}
 
 }

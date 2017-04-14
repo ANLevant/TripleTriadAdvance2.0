@@ -1,13 +1,20 @@
 package com.ttadvance.persistence.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 /**
  * Class to model a TT game.
  *
  * @author Levant, ID = 48774
  */
+@Entity
 public class Game {
 
 	/** The id. */
+	@Id
+	@GeneratedValue
 	private long id;
 	
 	/** The host player id. */
