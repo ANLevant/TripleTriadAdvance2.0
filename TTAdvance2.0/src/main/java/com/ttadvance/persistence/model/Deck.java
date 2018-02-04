@@ -13,7 +13,7 @@ import javax.persistence.OneToMany;
  *
  * @author Levant, Id = 48774
  */
-@Entity(name="DECK")
+@Entity(name="ttadvancet3.DECK")
 public class Deck {
 	
 	/** The id. */
@@ -23,9 +23,6 @@ public class Deck {
 	
 	/** The name. */
 	private String name;
-	
-	@OneToMany(targetEntity=Card.class, mappedBy="deck", fetch=FetchType.EAGER)
-	private List<Card> deck;
 	
 	/**
 	 * Gets the id.

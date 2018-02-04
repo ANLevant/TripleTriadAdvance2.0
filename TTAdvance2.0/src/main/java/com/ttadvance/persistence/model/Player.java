@@ -9,7 +9,7 @@ import javax.persistence.Id;
  *
  * @author Levant, ID = 48774
  */
-@Entity(name="PLAYER")
+@Entity(name="ttadvancet3.PLAYER")
 public class Player {
 
 	/** The id. */

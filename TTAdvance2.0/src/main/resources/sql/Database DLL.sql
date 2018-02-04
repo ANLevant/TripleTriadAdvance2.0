@@ -4,7 +4,7 @@
 
 CREATE TABLE ttadvancet3."PLAYER"
 (
-    "ID" numeric(100,1) NOT NULL,
+    "ID" serial NOT NULL,
     "NAME" character varying(255) COLLATE pg_catalog."default" NOT NULL,
     "EMAIL" character varying(255) COLLATE pg_catalog."default" NOT NULL,
     "POINTS" numeric(10,0),
@@ -25,7 +25,7 @@ ALTER TABLE ttadvancet3."PLAYER"
 
 CREATE TABLE ttadvancet3."DECK"
 (
-    "ID" numeric(10,1) NOT NULL,
+    "ID" serial NOT NULL,
     "NAME" character varying(255) COLLATE pg_catalog."default" NOT NULL,
     CONSTRAINT "DECK_pkey" PRIMARY KEY ("ID")
 )
@@ -45,14 +45,14 @@ COMMENT ON TABLE ttadvancet3."DECK"
 
 CREATE TABLE ttadvancet3."GAME"
 (
-    "ID" numeric(100,1) NOT NULL,
-    "HOST_PLAYER_ID" numeric(100,1) NOT NULL,
-    "CHALLENGER_PLAYER_ID" numeric(100,1) NOT NULL,
-    "USABLE_DECKS_IDS" numeric[] NOT NULL,
-    "HOST_PLAYER_HAND_CARD_IDS" numeric(5,0)[] NOT NULL,
-    "CHALLENGER_PLAYER_HAND_CARD_IDS" numeric(5,0)[] NOT NULL,
-    "USABLE_LEVELS" numeric[] NOT NULL,
-    "RULESET_RULES_IDS" numeric[],
+    "ID" serial NOT NULL,
+    "HOST_PLAYER_ID" integer NOT NULL,
+    "CHALLENGER_PLAYER_ID" integer,
+    "USABLE_DECKS_IDS" integer[] NOT NULL,
+    "HOST_PLAYER_HAND_CARD_IDS" integer[],
+    "CHALLENGER_PLAYER_HAND_CARD_IDS" integer[],
+    "USABLE_LEVELS" integer[] NOT NULL,
+    "RULESET_RULES_IDS" integer[],
     CONSTRAINT "GAME_pkey" PRIMARY KEY ("ID"),
     CONSTRAINT "GAME_CHALLENGER_PLAYER_ID" FOREIGN KEY ("CHALLENGER_PLAYER_ID")
         REFERENCES ttadvancet3."PLAYER" ("ID") MATCH SIMPLE
@@ -77,12 +77,12 @@ ALTER TABLE ttadvancet3."GAME"
 
 CREATE TABLE ttadvancet3."CARD"
 (
-    "ID" numeric(10,1) NOT NULL,
+    "ID" serial NOT NULL,
     "TOP_VALUE" numeric(2,1) NOT NULL,
     "BOTTOM_VALUE" numeric(2,1) NOT NULL,
     "RIGHT_VALUE" numeric(2,1) NOT NULL,
     "LEFT_VALUE" numeric(2,1) NOT NULL,
-    "DECK_ID" numeric(10,1) NOT NULL,
+    "DECK_ID" integer NOT NULL,
     CONSTRAINT "CARD_pkey" PRIMARY KEY ("ID"),
     CONSTRAINT "CARD_DECK_ID" FOREIGN KEY ("DECK_ID")
         REFERENCES ttadvancet3."DECK" ("ID") MATCH SIMPLE
@@ -105,7 +105,7 @@ COMMENT ON TABLE ttadvancet3."CARD"
 
 CREATE TABLE ttadvancet3."RULES"
 (
-    "ID" numeric NOT NULL,
+    "ID" serial NOT NULL,
     "NAME" character varying(255) COLLATE pg_catalog."default" NOT NULL,
     CONSTRAINT "RULES_pkey" PRIMARY KEY ("ID")
 )
@@ -117,14 +117,14 @@ TABLESPACE pg_default;
 ALTER TABLE ttadvancet3."RULES"
     OWNER to postgres;
 	
-	-- Table: ttadvancet3."PLAYER_CARDS"
+-- Table: ttadvancet3."PLAYER_CARDS"
 
 -- DROP TABLE ttadvancet3."PLAYER_CARDS";
 
 CREATE TABLE ttadvancet3."PLAYER_CARDS"
 (
-    "PLAYER_ID" numeric(100,0) NOT NULL,
-    "CARD_ID" numeric(100,0) NOT NULL,
+    "PLAYER_ID" integer NOT NULL,
+    "CARD_ID" integer NOT NULL,
     "AMMOUNT_OWNED" numeric(2,0) NOT NULL,
     CONSTRAINT "PLAYER_CARDS_pkey" PRIMARY KEY ("PLAYER_ID", "CARD_ID"),
     CONSTRAINT "CARD_ID_FK" FOREIGN KEY ("CARD_ID")

@@ -1,15 +1,13 @@
 package com.ttadvance.persistence.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Class to model a TT game.
  *
  * @author Levant, ID = 48774
  */
-@Entity
+@Entity(name = "ttadvancet3.GAME")
 public class Game {
 
 	/** The id. */
@@ -18,19 +16,29 @@ public class Game {
 	private long id;
 	
 	/** The host player id. */
+	/** The deck. */
+	@ManyToOne(targetEntity=Player.class, fetch= FetchType.EAGER)
 	private long hostPlayerId;
 	
 	/** The challenger played id. */
+	/** The deck. */
+	@ManyToOne(targetEntity=Player.class, fetch=FetchType.EAGER)
 	private long challengerPlayedId;
-	
-	/** The game matrix. */
-	private PlayerMove[][] gameMatrix;
 
 	/** The host player hand represented in card ids*/
-	private long[] hostPlayerHand;
+	private long[] hostPlayerHandCardIds;
 
 	/**The challenger player hand represented in card ids*/
-	private long[] challengerPlayerHand;
+	private long[] challengerPlayerHandCardIds;
+
+	/**The ruleset containing rules ids*/
+	private long[] rulesetRulesIds;
+
+	/**The usableDecksIds containing decks ids*/
+	private long[] usableDecksIds;
+
+	/**The usableLevels containing level numbers*/
+	private long[] usableLevels;
 
 	/**
 	 * Gets the id.
@@ -87,31 +95,12 @@ public class Game {
 	}
 
 	/**
-	 * Gets the game matrix.
-	 *
-	 * @return the game matrix
-	 */
-	public PlayerMove[][] getGameMatrix() {
-		return gameMatrix;
-	}
-
-	/**
-	 * Sets the game matrix.
-	 *
-	 * @param gameMatrix the new game matrix
-	 */
-	public void setGameMatrix(PlayerMove[][] gameMatrix) {
-		this.gameMatrix = gameMatrix;
-	}
-
-
-	/**
 	 * Gets the host player hand.
 	 *
 	 * @return the host player hand
 	 */
-	public long[] getHostPlayerHand() {
-		return hostPlayerHand;
+	public long[] getHostPlayerHandCardIds() {
+		return hostPlayerHandCardIds;
 	}
 
 	/**
@@ -119,8 +108,8 @@ public class Game {
 	 *
 	 * @param hostPlayerHand the new host player hand
 	 */
-	public void setHostPlayerHand(long[] hostPlayerHand) {
-		this.hostPlayerHand = hostPlayerHand;
+	public void setHostPlayerHandCardIds(long[] hostPlayerHand) {
+		this.hostPlayerHandCardIds = hostPlayerHand;
 	}
 
 	/**
@@ -128,8 +117,8 @@ public class Game {
 	 *
 	 * @return the challenger player hand
 	 */
-	public long[] getChallengerPlayerHand() {
-		return challengerPlayerHand;
+	public long[] getChallengerPlayerHandCardIds() {
+		return challengerPlayerHandCardIds;
 	}
 
 	/**
@@ -137,7 +126,31 @@ public class Game {
 	 *
 	 * @param challengerPlayerHand the new challenger player hand
 	 */
-	public void setChallengerPlayerHand(long[] challengerPlayerHand) {
-		this.challengerPlayerHand = challengerPlayerHand;
+	public void setChallengerPlayerHandCardIds(long[] challengerPlayerHand) {
+		this.challengerPlayerHandCardIds = challengerPlayerHand;
+	}
+
+	public long[] getRulesetRulesIds() {
+		return rulesetRulesIds;
+	}
+
+	public void setRulesetRulesIds(long[] rulesetRulesIds) {
+		this.rulesetRulesIds = rulesetRulesIds;
+	}
+
+	public long[] getUsableDecksIds() {
+		return usableDecksIds;
+	}
+
+	public void setUsableDecksIds(long[] usableDecksIds) {
+		this.usableDecksIds = usableDecksIds;
+	}
+
+	public long[] getUsableLevels() {
+		return usableLevels;
+	}
+
+	public void setUsableLevels(long[] usableLevels) {
+		this.usableLevels = usableLevels;
 	}
 }

@@ -1,6 +1,7 @@
 
 package com.ttadvance.business.service.impl;
 
+import com.ttadvance.business.mappers.EntityToDTOMaper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,15 +22,22 @@ public class GameServiceImpl implements IGameService {
 	private GameDAO gameDao;
 
 	/**
-	 * @see com.ttadvance.business.service.IGameService#createGame(long, com.ttadvance.business.dto.GameRulesDTO)
+	 * @see com.ttadvance.business.service.IGameService#createGame(long, long[], long[], long[])
 	 */
 	@Override
-	public GameDTO createGame(long playerId, GameRulesDTO gameRules) {	
+	public GameDTO createGame(long hostPlayerId, long[] usableDecks, long[] usableLevels, long[] ruleset) {
 		Game game = new Game();
-		
-		gameDao.save(game);
-		
+
+		game.setHostPlayerId(hostPlayerId);
+		game.setUsableDecksIds(usableDecks);
+		game.setUsableLevels(usableLevels);
+		game.setRulesetRulesIds(ruleset);
+
+		game = gameDao.save(game);
+
 		GameDTO gameDTO = new GameDTO();
+
+		gameDTO.setId(game.getId());
 			
 		return gameDTO;
 	}

@@ -12,7 +12,7 @@ import javax.persistence.OneToMany;
  *
  * @author Levant, ID = 48774
  */
-@Entity(name="CARD")
+@Entity(name="ttadvancet3.CARD")
 public class Card {
 	
 	/** The id. */
@@ -35,6 +35,9 @@ public class Card {
 	
 	/** The level. */
 	private int level;
+
+	/** The card name*/
+	private String name;
 	
 	/** The deck. */
 	@ManyToOne(targetEntity=Deck.class, fetch=FetchType.EAGER)
@@ -166,4 +169,21 @@ public class Card {
 		this.deck = deck;
 	}
 
+	/**
+	 * Gets the name.
+	 *
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * Sets the name.
+	 *
+	 * @param name the new name
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
 }
