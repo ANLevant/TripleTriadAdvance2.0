@@ -5,6 +5,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/Card")
-public class CardController {
+public interface CardController {
 
 }

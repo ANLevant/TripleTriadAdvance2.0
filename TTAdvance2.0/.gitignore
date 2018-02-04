@@ -1,7 +1,13 @@
+##Project Specific##
 target/
+bin/
+TripleTriadAdvanceT3/Intermediate/
+TripleTriadAdvanceT3/Build/
+TripleTriadAdvanceT3/Saved/
+
 !.mvn/wrapper/maven-wrapper.jar
 
-### STS ###
+### STS and Eclipse###
 .apt_generated
 .classpath
 .factorypath

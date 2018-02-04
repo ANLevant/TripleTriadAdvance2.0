@@ -26,6 +26,12 @@ public class Game {
 	/** The game matrix. */
 	private PlayerMove[][] gameMatrix;
 
+	/** The host player hand represented in card ids*/
+	private long[] hostPlayerHand;
+
+	/**The challenger player hand represented in card ids*/
+	private long[] challengerPlayerHand;
+
 	/**
 	 * Gets the id.
 	 *
@@ -97,5 +103,41 @@ public class Game {
 	public void setGameMatrix(PlayerMove[][] gameMatrix) {
 		this.gameMatrix = gameMatrix;
 	}
-	
+
+
+	/**
+	 * Gets the host player hand.
+	 *
+	 * @return the host player hand
+	 */
+	public long[] getHostPlayerHand() {
+		return hostPlayerHand;
+	}
+
+	/**
+	 * Sets the host player hand.
+	 *
+	 * @param hostPlayerHand the new host player hand
+	 */
+	public void setHostPlayerHand(long[] hostPlayerHand) {
+		this.hostPlayerHand = hostPlayerHand;
+	}
+
+	/**
+	 * Gets the challenger player hand.
+	 *
+	 * @return the challenger player hand
+	 */
+	public long[] getChallengerPlayerHand() {
+		return challengerPlayerHand;
+	}
+
+	/**
+	 * Sets the challenger player hand.
+	 *
+	 * @param challengerPlayerHand the new challenger player hand
+	 */
+	public void setChallengerPlayerHand(long[] challengerPlayerHand) {
+		this.challengerPlayerHand = challengerPlayerHand;
+	}
 }
