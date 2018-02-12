@@ -1,6 +1,10 @@
 ##Project Specific##
 target/
 bin/
+##Unity3D##
+../TripleTriadAdvanceT3/obj/
+../TripleTriadAdvanceT3/Temp/
+##Unreal Engine##
 ../TripleTriadAdvanceT3/Intermediate/
 ../TripleTriadAdvanceT3/Build/
 ../TripleTriadAdvanceT3/Saved/
