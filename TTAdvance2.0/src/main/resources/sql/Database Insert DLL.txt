@@ -1,0 +1,1 @@
+INSERT INTO ttadvancet3.DECK (name, abbreviation) VALUES('Final Fantasy Origins', 'FFO')
