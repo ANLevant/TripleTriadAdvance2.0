@@ -35,9 +35,9 @@ public class GameWebController {
     @RequestMapping(path = "/{gameId}", method = {RequestMethod.PUT})
     public void makeMove(@PathVariable Long gameId, Long playerId, Integer cardId, int xPosition, int yPosition) throws IOException {
         GameDTO modifiedGameDTO = gameService.findGame(gameId);
-        Integer[][] newMatrix = modifiedGameDTO.getGameMatrix();
+        /*Integer[][] newMatrix = modifiedGameDTO.getGameMatrix();
         newMatrix[yPosition][xPosition] = cardId;
-        modifiedGameDTO.setGameMatrix(newMatrix);
+        modifiedGameDTO.setGameMatrix(newMatrix);*/
         if(modifiedGameDTO.getPlayerToMoveId() == playerId){
             if(modifiedGameDTO.getPlayerToMoveId() == modifiedGameDTO.getHostPlayerId() && Arrays.asList(modifiedGameDTO.getHostPlayerHandCardIds()).contains(cardId)){
                 gameService.updateGame(modifiedGameDTO, yPosition, xPosition);

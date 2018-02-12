@@ -44,8 +44,8 @@ public class Card {
 	private String name;
 	
 	/** The deck. */
-	@ManyToOne(targetEntity=Deck.class, fetch=FetchType.EAGER)
-	private Deck deck;
+	@Column(name = "deck_id")
+	private int cardDeckId;
 	
 	/**
 	 * Gets the id.
@@ -160,17 +160,17 @@ public class Card {
 	 *
 	 * @return the deck
 	 */
-	public Deck getDeck() {
-		return deck;
+	public int getCardDeckId() {
+		return cardDeckId;
 	}
 
 	/**
 	 * Sets the deck.
 	 *
-	 * @param deck the new deck
+	 * @param cardDeckId the new deck
 	 */
-	public void setDeck(Deck deck) {
-		this.deck = deck;
+	public void setCardDeckId(int cardDeckId) {
+		this.cardDeckId = cardDeckId;
 	}
 
 	/**

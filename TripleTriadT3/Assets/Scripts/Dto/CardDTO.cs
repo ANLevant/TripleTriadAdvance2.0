@@ -13,7 +13,6 @@ public class CardDTO {
 	public int leftValue;
 	public int level;
 	public string name;
-	public DeckDTO deck;
 
 	public CardDTO(){
 	}

@@ -37,9 +37,9 @@ public class GameboardController : MonoBehaviour {
 
 	private IEnumerator LoadValues()
 	{
-		string url = Constants.SERVER_URL + Constants.CARD_CONTROLLER_REST_CONTEXT + "/" + gameId;
-		UnityWebRequest request = UnityWebRequest.Get(Constants.SERVER_URL+Constants.GAME_CONTROLLER_REST_CONTEXT+"/"+gameId);
-		yield return request.Send();
+		string url = Constants.SERVER_URL + Constants.GAME_CONTROLLER_REST_CONTEXT + "/" + gameId;
+		UnityWebRequest request = UnityWebRequest.Get(url);
+		yield return request.SendWebRequest();
 		string result = request.downloadHandler.text;
 
 		gameDTO = GameDTO.CreateFromJSON (result);

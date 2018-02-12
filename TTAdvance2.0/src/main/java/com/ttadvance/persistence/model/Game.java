@@ -59,7 +59,7 @@ public class Game {
 	/**Matrix that represents the movements done on the game. It's filled with Card Ids*/
 	@Column(name = "game_matrix")
 	@Type(type = "com.ttadvance.persistence.model.customtypes.GenericArrayUserType")
-	private Integer[][] gameMatrix;
+	private Integer[] gameMatrix;
 
 	public Long getId() {
 		return id;
@@ -133,11 +133,11 @@ public class Game {
 		this.usableLevels = usableLevels;
 	}
 
-	public Integer[][] getGameMatrix() {
+	public Integer[] getGameMatrix() {
 		return gameMatrix;
 	}
 
-	public void setGameMatrix(Integer[][] gameMatrix) {
+	public void setGameMatrix(Integer[] gameMatrix) {
 		this.gameMatrix = gameMatrix;
 	}
 }

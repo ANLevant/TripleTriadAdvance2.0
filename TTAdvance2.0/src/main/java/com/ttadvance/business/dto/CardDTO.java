@@ -31,7 +31,7 @@ public class CardDTO {
 	/** The card name*/
 	private String name;
 
-	private DeckDTO deck;
+	private int cardDeckId;
 
 	public Long getId() {
 		return id;
@@ -97,11 +97,11 @@ public class CardDTO {
 		this.name = name;
 	}
 
-	public DeckDTO getDeck() {
-		return deck;
+	public int getCardDeckId() {
+		return cardDeckId;
 	}
 
-	public void setDeck(DeckDTO deck) {
-		this.deck = deck;
+	public void setDeck(int cardDeckId) {
+		this.cardDeckId = cardDeckId;
 	}
 }
