@@ -1,5 +1,7 @@
 package com.ttadvance.business.dto;
 
+import java.util.List;
+
 /**
  * Class to model a TT game.
  *
@@ -8,171 +10,112 @@ package com.ttadvance.business.dto;
 public class GameDTO {
 
 	/** The id. */
-	private long id;
+	private Long id;
 	
 	/** The host player id. */
-	private long hostPlayerId;
-	
-	/** The host payer hand card ids. */
-	private long[] hostPayerHandCardIds;
-	
-	/** The challenger played id. */
-	private long challengerPlayerId;
+	private Long hostPlayerId;
+
+	/** The challenger player id. */
+	private Long challengerPlayerId;
+
+	/** The player to move id. */
+	private Long playerToMoveId;
 	
 	/** The challenger player card ids. */
-	private long[] challengerPlayerCardIds;
-	
-	/** The player to move id. */
-	private long playerToMoveId;
-	
-	/** The first player to move id. */
-	private long firstPlayerToMoveId;
-	
-	/** The game matrix. */
-	private PlayerMoveDTO[][] gameMatrix;
+	private Integer[] challengerPlayerHandCardIds;
 
-	/**
-	 * Gets the id.
-	 *
-	 * @return the id
-	 */
-	public long getId() {
+	/** The host payer hand card ids. */
+	private Integer[] hostPlayerHandCardIds;
+
+	/** The game matrix. */
+	private Integer[][] gameMatrix;
+
+	/**The ruleset containing rules ids*/
+	private Integer[] rulesetRulesIds;
+
+	/**The usableDecksIds containing decks ids*/
+	private Integer[] usableDecksIds;
+
+	/**The usableLevels containing level numbers*/
+	private Integer[] usableLevels;
+
+	public Long getId() {
 		return id;
 	}
 
-	/**
-	 * Sets the id.
-	 *
-	 * @param id the new id
-	 */
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
-	/**
-	 * Gets the host player id.
-	 *
-	 * @return the host player id
-	 */
-	public long getHostPlayerId() {
+	public Long getHostPlayerId() {
 		return hostPlayerId;
 	}
 
-	/**
-	 * Sets the host player id.
-	 *
-	 * @param hostPlayerId the new host player id
-	 */
-	public void setHostPlayerId(long hostPlayerId) {
+	public void setHostPlayerId(Long hostPlayerId) {
 		this.hostPlayerId = hostPlayerId;
 	}
 
-	/**
-	 * Gets the challenger played id.
-	 *
-	 * @return the challenger played id
-	 */
-	public long getChallengerPlayerId() {
+	public Long getChallengerPlayerId() {
 		return challengerPlayerId;
 	}
 
-	/**
-	 * Sets the challenger played id.
-	 *
-	 * @param challengerPlayerId the new challenger player id
-	 */
-	public void setChallengerPlayerId(long challengerPlayerId) {
+	public void setChallengerPlayerId(Long challengerPlayerId) {
 		this.challengerPlayerId = challengerPlayerId;
 	}
 
-	/**
-	 * Gets the game matrix.
-	 *
-	 * @return the game matrix
-	 */
-	public PlayerMoveDTO[][] getGameMatrix() {
-		return gameMatrix;
-	}
-
-	/**
-	 * Sets the game matrix.
-	 *
-	 * @param gameMatrix the new game matrix
-	 */
-	public void setGameMatrix(PlayerMoveDTO[][] gameMatrix) {
-		this.gameMatrix = gameMatrix;
-	}
-
-	/**
-	 * Gets the player to move id.
-	 *
-	 * @return the player to move id
-	 */
-	public long getPlayerToMoveId() {
+	public Long getPlayerToMoveId() {
 		return playerToMoveId;
 	}
 
-	/**
-	 * Sets the player to move id.
-	 *
-	 * @param playerToMoveId the new player to move id
-	 */
-	public void setPlayerToMoveId(long playerToMoveId) {
+	public void setPlayerToMoveId(Long playerToMoveId) {
 		this.playerToMoveId = playerToMoveId;
 	}
 
-	/**
-	 * Gets the first player to move id.
-	 *
-	 * @return the first player to move id
-	 */
-	public long getFirstPlayerToMoveId() {
-		return firstPlayerToMoveId;
+	public Integer[] getChallengerPlayerHandCardIds() {
+		return challengerPlayerHandCardIds;
 	}
 
-	/**
-	 * Sets the first player to move id.
-	 *
-	 * @param firstPlayerToMoveId the new first player to move id
-	 */
-	public void setFirstPlayerToMoveId(long firstPlayerToMoveId) {
-		this.firstPlayerToMoveId = firstPlayerToMoveId;
+	public void setChallengerPlayerHandCardIds(Integer[] challengerPlayerHandCardIds) {
+		this.challengerPlayerHandCardIds = challengerPlayerHandCardIds;
 	}
 
-	/**
-	 * Gets the host payer hand card ids.
-	 *
-	 * @return the host payer hand card ids
-	 */
-	public long[] getHostPayerHandCardIds() {
-		return hostPayerHandCardIds;
+	public Integer[] getHostPlayerHandCardIds() {
+		return hostPlayerHandCardIds;
 	}
 
-	/**
-	 * Sets the host payer hand card ids.
-	 *
-	 * @param hostPayerHandCardIds the new host payer hand card ids
-	 */
-	public void setHostPayerHandCardIds(long[] hostPayerHandCardIds) {
-		this.hostPayerHandCardIds = hostPayerHandCardIds;
+	public void setHostPlayerHandCardIds(Integer[] hostPlayerHandCardIds) {
+		this.hostPlayerHandCardIds = hostPlayerHandCardIds;
 	}
 
-	/**
-	 * Gets the challenger player card ids.
-	 *
-	 * @return the challenger player card ids
-	 */
-	public long[] getChallengerPlayerCardIds() {
-		return challengerPlayerCardIds;
+	public Integer[][] getGameMatrix() {
+		return gameMatrix;
 	}
 
-	/**
-	 * Sets the challenger player card ids.
-	 *
-	 * @param challengerPlayerCardIds the new challenger player card ids
-	 */
-	public void setChallengerPlayerCardIds(long[] challengerPlayerCardIds) {
-		this.challengerPlayerCardIds = challengerPlayerCardIds;
+	public void setGameMatrix(Integer[][] gameMatrix) {
+		this.gameMatrix = gameMatrix;
 	}
-	
+
+	public Integer[] getRulesetRulesIds() {
+		return rulesetRulesIds;
+	}
+
+	public void setRulesetRulesIds(Integer[] rulesetRulesIds) {
+		this.rulesetRulesIds = rulesetRulesIds;
+	}
+
+	public Integer[] getUsableDecksIds() {
+		return usableDecksIds;
+	}
+
+	public void setUsableDecksIds(Integer[] usableDecksIds) {
+		this.usableDecksIds = usableDecksIds;
+	}
+
+	public Integer[] getUsableLevels() {
+		return usableLevels;
+	}
+
+	public void setUsableLevels(Integer[] usableLevels) {
+		this.usableLevels = usableLevels;
+	}
 }

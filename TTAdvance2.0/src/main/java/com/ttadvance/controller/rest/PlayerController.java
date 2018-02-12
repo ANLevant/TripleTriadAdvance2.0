@@ -1,10 +1,11 @@
 package com.ttadvance.controller.rest;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.ttadvance.business.service.IPlayerService;
+import org.springframework.beans.factory.annotation.Autowired;
 
-@RestController
-@RequestMapping("/Player")
-public interface PlayerController {
+public class PlayerController {
 
+    @Autowired
+    private IPlayerService playerService;
 }
+

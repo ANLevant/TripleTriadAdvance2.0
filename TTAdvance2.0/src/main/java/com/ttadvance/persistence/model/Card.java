@@ -1,39 +1,43 @@
 package com.ttadvance.persistence.model;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
 /**
  * Class to model a Card.
  *
  * @author Levant, ID = 48774
  */
-@Entity(name="ttadvancet3.CARD")
+@Entity
+@Table(name="CARD", schema = "ttadvancet3")
 public class Card {
 	
 	/** The id. */
 	@Id
 	@GeneratedValue
-	private long id;
+	private Long id;
+
+	/** The left value. */
+	@Column(name = "element_id")
+	private int elementId;
 	
 	/** The top value. */
-	
+	@Column(name = "top_value")
 	private int topValue;
 	
 	/** The bottom value. */
+	@Column(name = "bottom_value")
 	private int bottomValue;
 	
 	/** The right value. */
+	@Column(name = "right_value")
 	private int rightValue;
-	
+
 	/** The left value. */
+	@Column(name = "left_value")
 	private int leftValue;
 	
 	/** The level. */
+	@Column(name = "level_number")
 	private int level;
 
 	/** The card name*/
@@ -48,7 +52,7 @@ public class Card {
 	 *
 	 * @return the id
 	 */
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 	
@@ -57,7 +61,7 @@ public class Card {
 	 *
 	 * @param id the new id
 	 */
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	

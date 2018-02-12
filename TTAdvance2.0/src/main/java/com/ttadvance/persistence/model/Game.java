@@ -1,156 +1,143 @@
 package com.ttadvance.persistence.model;
 
+import org.hibernate.annotations.Type;
+
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Class to model a TT game.
  *
  * @author Levant, ID = 48774
  */
-@Entity(name = "ttadvancet3.GAME")
+@Entity
+@Table(name="GAME", schema = "ttadvancet3")
 public class Game {
 
 	/** The id. */
 	@Id
 	@GeneratedValue
-	private long id;
-	
+	private Long id;
+
 	/** The host player id. */
-	/** The deck. */
-	@ManyToOne(targetEntity=Player.class, fetch= FetchType.EAGER)
-	private long hostPlayerId;
-	
+	@Column(name = "host_player_id")
+	private Long hostPlayerId;
+
 	/** The challenger played id. */
-	/** The deck. */
-	@ManyToOne(targetEntity=Player.class, fetch=FetchType.EAGER)
-	private long challengerPlayedId;
+	@Column(name = "challenger_player_id")
+	private Long challengerPlayerId;
+
+	/** The player to move id. */
+	@Column(name = "player_to_move_id")
+	private Long playerToMoveId;
 
 	/** The host player hand represented in card ids*/
-	private long[] hostPlayerHandCardIds;
+	@Column(name = "host_player_hand_card_ids")
+	@Type(type = "com.ttadvance.persistence.model.customtypes.GenericArrayUserType")
+	private Integer[] hostPlayerHandCardIds;
 
 	/**The challenger player hand represented in card ids*/
-	private long[] challengerPlayerHandCardIds;
+	@Column(name = "challenger_player_hand_card_ids")
+	@Type(type = "com.ttadvance.persistence.model.customtypes.GenericArrayUserType")
+	private Integer[] challengerPlayerHandCardIds;
 
 	/**The ruleset containing rules ids*/
-	private long[] rulesetRulesIds;
+	@Column(name = "ruleset_rules_ids")
+	@Type(type = "com.ttadvance.persistence.model.customtypes.GenericArrayUserType")
+	private Integer[] rulesetRulesIds;
 
 	/**The usableDecksIds containing decks ids*/
-	private long[] usableDecksIds;
+	@Column(name = "usable_decks_ids")
+	@Type(type = "com.ttadvance.persistence.model.customtypes.GenericArrayUserType")
+	private Integer[] usableDecksIds;
 
 	/**The usableLevels containing level numbers*/
-	private long[] usableLevels;
+	@Column(name = "usable_levels")
+	@Type(type = "com.ttadvance.persistence.model.customtypes.GenericArrayUserType")
+	private Integer[] usableLevels;
 
-	/**
-	 * Gets the id.
-	 *
-	 * @return the id
-	 */
-	public long getId() {
+	/**Matrix that represents the movements done on the game. It's filled with Card Ids*/
+	@Column(name = "game_matrix")
+	@Type(type = "com.ttadvance.persistence.model.customtypes.GenericArrayUserType")
+	private Integer[][] gameMatrix;
+
+	public Long getId() {
 		return id;
 	}
 
-	/**
-	 * Sets the id.
-	 *
-	 * @param id the new id
-	 */
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
-	/**
-	 * Gets the host player id.
-	 *
-	 * @return the host player id
-	 */
-	public long getHostPlayerId() {
+	public Long getHostPlayerId() {
 		return hostPlayerId;
 	}
 
-	/**
-	 * Sets the host player id.
-	 *
-	 * @param hostPlayerId the new host player id
-	 */
-	public void setHostPlayerId(long hostPlayerId) {
+	public void setHostPlayerId(Long hostPlayerId) {
 		this.hostPlayerId = hostPlayerId;
 	}
 
-	/**
-	 * Gets the challenger played id.
-	 *
-	 * @return the challenger played id
-	 */
-	public long getChallengerPlayedId() {
-		return challengerPlayedId;
+	public Long getChallengerPlayerId() {
+		return challengerPlayerId;
 	}
 
-	/**
-	 * Sets the challenger played id.
-	 *
-	 * @param challengerPlayedId the new challenger played id
-	 */
-	public void setChallengerPlayedId(long challengerPlayedId) {
-		this.challengerPlayedId = challengerPlayedId;
+	public void setChallengerPlayerId(Long challengerPlayerId) {
+		this.challengerPlayerId = challengerPlayerId;
 	}
 
-	/**
-	 * Gets the host player hand.
-	 *
-	 * @return the host player hand
-	 */
-	public long[] getHostPlayerHandCardIds() {
+	public Long getPlayerToMoveId() {
+		return playerToMoveId;
+	}
+
+	public void setPlayerToMoveId(Long playerToMoveId) {
+		this.playerToMoveId = playerToMoveId;
+	}
+
+	public Integer[] getHostPlayerHandCardIds() {
 		return hostPlayerHandCardIds;
 	}
 
-	/**
-	 * Sets the host player hand.
-	 *
-	 * @param hostPlayerHand the new host player hand
-	 */
-	public void setHostPlayerHandCardIds(long[] hostPlayerHand) {
-		this.hostPlayerHandCardIds = hostPlayerHand;
+	public void setHostPlayerHandCardIds(Integer[] hostPlayerHandCardIds) {
+		this.hostPlayerHandCardIds = hostPlayerHandCardIds;
 	}
 
-	/**
-	 * Gets the challenger player hand.
-	 *
-	 * @return the challenger player hand
-	 */
-	public long[] getChallengerPlayerHandCardIds() {
+	public Integer[] getChallengerPlayerHandCardIds() {
 		return challengerPlayerHandCardIds;
 	}
 
-	/**
-	 * Sets the challenger player hand.
-	 *
-	 * @param challengerPlayerHand the new challenger player hand
-	 */
-	public void setChallengerPlayerHandCardIds(long[] challengerPlayerHand) {
-		this.challengerPlayerHandCardIds = challengerPlayerHand;
+	public void setChallengerPlayerHandCardIds(Integer[] challengerPlayerHandCardIds) {
+		this.challengerPlayerHandCardIds = challengerPlayerHandCardIds;
 	}
 
-	public long[] getRulesetRulesIds() {
+	public Integer[] getRulesetRulesIds() {
 		return rulesetRulesIds;
 	}
 
-	public void setRulesetRulesIds(long[] rulesetRulesIds) {
+	public void setRulesetRulesIds(Integer[] rulesetRulesIds) {
 		this.rulesetRulesIds = rulesetRulesIds;
 	}
 
-	public long[] getUsableDecksIds() {
+	public Integer[] getUsableDecksIds() {
 		return usableDecksIds;
 	}
 
-	public void setUsableDecksIds(long[] usableDecksIds) {
+	public void setUsableDecksIds(Integer[] usableDecksIds) {
 		this.usableDecksIds = usableDecksIds;
 	}
 
-	public long[] getUsableLevels() {
+	public Integer[] getUsableLevels() {
 		return usableLevels;
 	}
 
-	public void setUsableLevels(long[] usableLevels) {
+	public void setUsableLevels(Integer[] usableLevels) {
 		this.usableLevels = usableLevels;
+	}
+
+	public Integer[][] getGameMatrix() {
+		return gameMatrix;
+	}
+
+	public void setGameMatrix(Integer[][] gameMatrix) {
+		this.gameMatrix = gameMatrix;
 	}
 }

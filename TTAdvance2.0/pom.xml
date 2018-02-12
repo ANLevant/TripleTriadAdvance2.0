@@ -57,7 +57,16 @@
 		  <artifactId>postgresql</artifactId>
 		  <version>9.4.1212</version>
 		</dependency>
-		
+
+		<!-- Needed common methods -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.7</version>
+		</dependency>
+
+
+
 		<!-- Jackson -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>

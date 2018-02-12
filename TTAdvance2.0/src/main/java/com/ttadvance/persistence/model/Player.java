@@ -3,19 +3,21 @@ package com.ttadvance.persistence.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * Class to model a TTA player.
  *
  * @author Levant, ID = 48774
  */
-@Entity(name="ttadvancet3.PLAYER")
+@Entity
+@Table(name="PLAYER", schema = "ttadvancet3")
 public class Player {
 
 	/** The id. */
 	@Id
 	@GeneratedValue
-	private long id;
+	private Long id;
 	
 	/** The name. */
 	private String name;
@@ -24,14 +26,14 @@ public class Player {
 	private String email;
 	
 	/** The points. */
-	private long points;
+	private Long points;
 	
 	/**
 	 * Gets the id.
 	 *
 	 * @return the id
 	 */
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 	
@@ -40,7 +42,7 @@ public class Player {
 	 *
 	 * @param id the new id
 	 */
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	
@@ -85,7 +87,7 @@ public class Player {
 	 *
 	 * @return the points
 	 */
-	public long getPoints() {
+	public Long getPoints() {
 		return points;
 	}
 
@@ -94,7 +96,7 @@ public class Player {
 	 *
 	 * @param points the new points
 	 */
-	public void setPoints(long points) {
+	public void setPoints(Long points) {
 		this.points = points;
 	}
 }
