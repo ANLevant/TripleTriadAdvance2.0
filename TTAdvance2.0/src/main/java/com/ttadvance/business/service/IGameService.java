@@ -1,5 +1,6 @@
 package com.ttadvance.business.service;
 
+import com.ttadvance.business.dto.GameBoardDTO;
 import com.ttadvance.business.dto.GameDTO;
 import com.ttadvance.business.dto.GameRulesDTO;
 
@@ -16,4 +17,6 @@ public interface IGameService {
     void updateGame(GameDTO gameDTO, int yPosition, int xPosition) throws IOException;
 
     GameDTO findGame(long gameId) throws IOException;
+
+    GameBoardDTO findGameBoard(long gameId) throws IOException;
 }

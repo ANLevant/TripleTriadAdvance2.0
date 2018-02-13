@@ -18,7 +18,7 @@ public class CardController {
     private ICardService cardService;
 
     @RequestMapping(path = "/{cardId}", method = {RequestMethod.GET})
-    public CardDTO getDeck(@PathVariable Long cardId) throws IOException {
+    public CardDTO getCard(@PathVariable Long cardId) throws IOException {
         return cardService.findCard(cardId);
     }
 }

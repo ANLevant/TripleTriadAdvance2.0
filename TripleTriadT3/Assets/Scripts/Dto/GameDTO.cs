@@ -23,9 +23,6 @@ public class GameDTO {
 	/** The host payer hand card ids. */
 	public int[] hostPlayerHandCardIds;
 
-	/** The game matrix. */
-	public int[][] gameMatrix;
-
 	/**The ruleset containing rules ids*/
 	public int[] rulesetRulesIds;
 

@@ -1,21 +1,14 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Game\GameboardController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Game\CardLogic.cs">
     <Files>
-      <File FileName="Assets\Scripts\Game\Card.cs" Line="37" Column="3" />
-      <File FileName="Assets\Scripts\Game\GameboardController.cs" Line="41" Column="11" />
+      <File FileName="Assets\Scripts\Game\Card.cs" Line="25" Column="1" />
+      <File FileName="Assets\Scripts\Game\HandScript.cs" Line="43" Column="1" />
+      <File FileName="Assets\Scripts\Game\GameboardController.cs" Line="22" Column="1" />
+      <File FileName="Assets\Scripts\Game\CardLogic.cs" Line="52" Column="2" />
+      <File FileName="Assets\Scripts\Game\GameBoardTile.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Game\Turnindicator.cs" Line="16" Column="1" />
     </Files>
-    <Pads>
-      <Pad Id="MonoDevelop.Debugger.WatchPad">
-        <State>
-          <Value>this</Value>
-          <Value>HandScript</Value>
-          <Value>componentMaterial</Value>
-          <Value>GameboardController</Value>
-          <Value>url</Value>
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
@@ -24,6 +17,8 @@
       <Breakpoint file="C:\Users\USER\Documents\Unity Projects\TripleTriadT3\Assets\Scripts\Game\Card.cs" line="36" column="1" />
       <Breakpoint file="C:\Users\USER\Documents\Unity Projects\TripleTriadT3\Assets\Scripts\Game\GameboardController.cs" line="41" column="1" />
       <Breakpoint file="C:\Users\USER\Documents\Unity Projects\TripleTriadT3\Assets\Scripts\Game\GameboardController.cs" line="42" column="1" />
+      <Breakpoint file="C:\Users\USER\Documents\Unreal Projects\TripleTriadAdvance2.0\TripleTriadT3\Assets\Scripts\Game\CardLogic.cs" line="26" column="1" />
+      <Breakpoint file="C:\Users\USER\Documents\Unreal Projects\TripleTriadAdvance2.0\TripleTriadT3\Assets\Scripts\Game\CardLogic.cs" line="54" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

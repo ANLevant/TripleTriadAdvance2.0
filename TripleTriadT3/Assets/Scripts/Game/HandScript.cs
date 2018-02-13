@@ -7,16 +7,22 @@ public class HandScript : MonoBehaviour {
 	public bool isHostPlayer;
 	public bool isOpen;
 	public static bool isHighlightable;
-	public static bool waitStill;
+	public static bool waitStill= true;
+	private bool doneWaiting;
+	Animator animator;
 
 	// Use this for initialization
 	void Start () {
-		waitStill = true;
+		animator = gameObject.GetComponent<Animator> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if (!waitStill && !doneWaiting) {
+			FilpHand ();
+			doneWaiting = true;
+			isHighlightable = true;
+		}
 	}
 
 	void DrawCard()
@@ -28,11 +34,15 @@ public class HandScript : MonoBehaviour {
 	}
 
 	void FilpHand(){
-		if (!isOpen && !isHostPlayer) {
-			Animation animation = gameObject.GetComponent<Animation> ();
-			animation.Stop ();
+		if ((!isOpen && !isHostPlayer) || waitStill) {
+			animator.SetTrigger ("idle");
+		} else {
+			isHighlightable = true;
+			animator.SetTrigger ("flipHand");
 		}
-		waitStill = false;
-		isHighlightable = true;
 	}
+
+	void DisableFlipping(){
+		animator.SetTrigger ("idle");
+	}		
 }

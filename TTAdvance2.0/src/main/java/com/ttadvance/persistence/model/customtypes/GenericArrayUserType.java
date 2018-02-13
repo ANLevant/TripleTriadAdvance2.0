@@ -4,8 +4,12 @@ import org.hibernate.HibernateException;
 import org.hibernate.engine.spi.SessionImplementor;
 import org.hibernate.usertype.UserType;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.Serializable;
 import java.sql.*;
+import java.util.Properties;
 
 public class GenericArrayUserType <T extends Serializable> implements UserType {
 
@@ -50,15 +54,24 @@ public class GenericArrayUserType <T extends Serializable> implements UserType {
     @Override
     public Object nullSafeGet(ResultSet resultSet, String[] names, SessionImplementor session, Object owner)
             throws HibernateException, SQLException {
+        Connection connection = null;
         if (resultSet.wasNull()) {
-            Connection connection = resultSet.getStatement().getConnection();
-            Statement statement = connection.createStatement();
+            try {
+                Properties properties = new Properties();
+                String path = (Thread.currentThread().getContextClassLoader().getResource("").getPath()+"appliaction.properties").replace("%20", " ").replace(" (The system cannot find the path specified)", "").substring(1);
+//                properties.load(new FileInputStream(path));
 
-            statement.execute(resultSet.getStatement().toString());
-            resultSet = statement.getResultSet();
+                connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/ttadvancet3", "postgres", "system");
+                Statement statement = connection.createStatement();
 
-            if(!resultSet.next()){
-                return null;
+                statement.execute(resultSet.getStatement().toString());
+                resultSet = statement.getResultSet();
+
+                if(!resultSet.next()){
+                    return null;
+                }
+            } catch (   Exception e) {
+                e.printStackTrace();
             }
         }
         if (resultSet.getArray(names[0]) == null) {
@@ -68,6 +81,9 @@ public class GenericArrayUserType <T extends Serializable> implements UserType {
         Array array = resultSet.getArray(names[0]);
         @SuppressWarnings("unchecked")
         T javaArray = (T) array.getArray();
+        if(connection != null) {
+            connection.close();
+        }
         return javaArray;
     }
 
@@ -83,6 +99,7 @@ public class GenericArrayUserType <T extends Serializable> implements UserType {
             Array array = connection.createArrayOf("integer", (Object[]) castObject);
             statement.setArray(index, array);
         }
+        connection.close();
     }
 
     @Override

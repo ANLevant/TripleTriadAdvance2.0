@@ -1,7 +1,9 @@
 package com.ttadvance.controller.rest;
 
+import com.ttadvance.business.dto.GameBoardDTO;
 import com.ttadvance.business.dto.GameDTO;
 import com.ttadvance.business.service.IGameService;
+import com.ttadvance.persistence.model.GameBoard;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -30,6 +32,11 @@ public class GameWebController {
     @RequestMapping(path = "/{gameId}", method = {RequestMethod.GET})
     public GameDTO getGame(@PathVariable  Long gameId) throws IOException {
         return gameService.findGame(gameId);
+    }
+
+    @RequestMapping(path = "/{gameId}/gameBoard", method = {RequestMethod.GET})
+    public GameBoardDTO getGameBoard(@PathVariable  Long gameId) throws IOException {
+        return gameService.findGameBoard(gameId);
     }
 
     @RequestMapping(path = "/{gameId}", method = {RequestMethod.PUT})

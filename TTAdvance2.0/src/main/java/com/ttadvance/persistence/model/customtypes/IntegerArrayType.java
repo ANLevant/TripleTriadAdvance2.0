@@ -66,6 +66,7 @@ public class IntegerArrayType implements UserType {
             if(!resultSet.next()){
                 return null;
             }
+            connection.close();
         }
         if (resultSet.getArray(names[0]) == null) {
             return new Integer[0];

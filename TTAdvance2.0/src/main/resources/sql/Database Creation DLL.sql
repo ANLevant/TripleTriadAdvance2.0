@@ -74,7 +74,6 @@ CREATE TABLE ttadvancet3.GAME
     CHALLENGER_PLAYER_HAND_CARD_IDS integer[],
     USABLE_LEVELS integer[] NOT NULL,
     RULESET_RULES_IDS integer[],
-	GAME_MATRIX integer[][],
     CONSTRAINT GAME_pkey PRIMARY KEY (ID),
     CONSTRAINT GAME_CHALLENGER_PLAYER_ID FOREIGN KEY (CHALLENGER_PLAYER_ID)
         REFERENCES ttadvancet3.PLAYER (ID) MATCH SIMPLE
@@ -95,6 +94,30 @@ WITH (
 TABLESPACE pg_default;
 
 ALTER TABLE ttadvancet3.GAME
+    OWNER to postgres;
+
+-- Table: ttadvancet3.GAMEBOARD
+
+-- DROP TABLE ttadvancet3.GAMEBOARD;
+
+CREATE TABLE ttadvancet3.GAMEBOARD
+(
+    GAME_ID integer NOT NULL,
+    FIRST_ROW integer[] NOT NULL,
+    SECOND_ROW integer[] NOT NULL,
+    THIRD_ROW integer[] NOT NULL,
+    CONSTRAINT GAMEBOARD_PKEY PRIMARY KEY (GAME_ID),
+    CONSTRAINT BOARD_GAME_ID FOREIGN KEY (GAME_ID)
+        REFERENCES ttadvancet3.GAME (ID) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE ttadvancet3.GAMEBOARD
     OWNER to postgres;
 	
 -- Table: ttadvancet3.CARD

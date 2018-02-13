@@ -27,9 +27,6 @@ public class GameDTO {
 	/** The host payer hand card ids. */
 	private Integer[] hostPlayerHandCardIds;
 
-	/** The game matrix. */
-	private Integer[] gameMatrix;
-
 	/**The ruleset containing rules ids*/
 	private Integer[] rulesetRulesIds;
 
@@ -85,14 +82,6 @@ public class GameDTO {
 
 	public void setHostPlayerHandCardIds(Integer[] hostPlayerHandCardIds) {
 		this.hostPlayerHandCardIds = hostPlayerHandCardIds;
-	}
-
-	public Integer[] getGameMatrix() {
-		return gameMatrix;
-	}
-
-	public void setGameMatrix(Integer[] gameMatrix) {
-		this.gameMatrix = gameMatrix;
 	}
 
 	public Integer[] getRulesetRulesIds() {
