@@ -103,9 +103,15 @@ ALTER TABLE ttadvancet3.GAME
 CREATE TABLE ttadvancet3.GAMEBOARD
 (
     GAME_ID integer NOT NULL,
-    FIRST_ROW integer[] NOT NULL,
-    SECOND_ROW integer[] NOT NULL,
-    THIRD_ROW integer[] NOT NULL,
+    FIRST_SLOT integer,
+    SECOND_SLOT integer,
+    THIRD_SLOT integer,
+    FOURHT_SLOT integer,
+    FIFTH_SLOT integer,
+    SIXTH_SLOT integer,
+    SEVENTH_SLOT integer,
+    EIHGTH_SLOT integer,
+    NINTH_SLOT integer,
     CONSTRAINT GAMEBOARD_PKEY PRIMARY KEY (GAME_ID),
     CONSTRAINT BOARD_GAME_ID FOREIGN KEY (GAME_ID)
         REFERENCES ttadvancet3.GAME (ID) MATCH SIMPLE
