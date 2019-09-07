@@ -19,7 +19,7 @@ TABLESPACE pg_default;
 ALTER TABLE ttadvancet3.PLAYER
     OWNER to postgres;
 
-	
+
 -- Table: ttadvancet3.DECK
 
 -- DROP TABLE ttadvancet3.DECK;
@@ -40,7 +40,7 @@ ALTER TABLE ttadvancet3.DECK
     OWNER to postgres;
 COMMENT ON TABLE ttadvancet3.DECK
     IS 'Table to represent a Card Deck';
-	
+
 -- Table: ttadvancet3.ELEMENT
 
 -- DROP TABLE ttadvancet3.ELEMENT;
@@ -57,7 +57,7 @@ WITH (
 TABLESPACE pg_default;
 
 ALTER TABLE ttadvancet3.ELEMENT
-    OWNER to postgres;	
+    OWNER to postgres;
 
 -- Table: ttadvancet3.GAME
 
@@ -82,7 +82,7 @@ CREATE TABLE ttadvancet3.GAME
     CONSTRAINT GAME_HOST_PLAYER_ID FOREIGN KEY (HOST_PLAYER_ID)
         REFERENCES ttadvancet3.PLAYER (ID) MATCH SIMPLE
         ON UPDATE NO ACTION
-        ON DELETE NO ACTION
+        ON DELETE NO ACTION,
 	CONSTRAINT GAME_PLAYER_TO_MOVE_ID FOREIGN KEY (PLAYER_TO_MOVE_ID)
         REFERENCES ttadvancet3.PLAYER (ID) MATCH SIMPLE
         ON UPDATE NO ACTION
@@ -125,7 +125,7 @@ TABLESPACE pg_default;
 
 ALTER TABLE ttadvancet3.GAMEBOARD
     OWNER to postgres;
-	
+
 -- Table: ttadvancet3.CARD
 
 -- DROP TABLE ttadvancet3.CARD;
@@ -160,7 +160,7 @@ ALTER TABLE ttadvancet3.CARD
     OWNER to postgres;
 COMMENT ON TABLE ttadvancet3.CARD
     IS 'Table to hold the information of all existing cards';
-	
+
 -- Table: ttadvancet3.RULES
 
 -- DROP TABLE ttadvancet3.RULES;
@@ -178,7 +178,7 @@ TABLESPACE pg_default;
 
 ALTER TABLE ttadvancet3.RULES
     OWNER to postgres;
-	
+
 -- Table: ttadvancet3.PLAYER_CARDS
 
 -- DROP TABLE ttadvancet3.PLAYER_CARDS;
