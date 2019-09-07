@@ -21,10 +21,10 @@ INSERT INTO ttadvancet3.ELEMENT (name) VALUES('Dark');
 INSERT INTO ttadvancet3.ELEMENT (name) VALUES('Ice');
 
 -- Table: ttadvancet3.GAME
-INSERT INTO ttadvancet3.GAME(host_player_id, challenger_player_id, usable_decks_ids, host_player_hand_card_ids, challenger_player_hand_card_ids, usable_levels, ruleset_rules_ids) VALUES (1, 2, {1}, {1,3,5,7,9}, {2,4,6,8,10}, {1,2,3}, null)
+INSERT INTO ttadvancet3.GAME(host_player_id, challenger_player_id, usable_decks_ids, host_player_hand_card_ids, challenger_player_hand_card_ids, usable_levels, ruleset_rules_ids) VALUES (1, 2, '{1}', '{1,3,5,7,9}', '{2,4,6,8,10}', '{1,2,3}', null);
 
 -- Table: ttadvancet3.GAMEBOARD
-INSERT INTO ttadvancet3.GAMEBOARD(game_id, first_row, second_row, third_row) VALUES (1, '{0,0,0}', '{0,0,0}', '{0,0,0}');
+INSERT INTO ttadvancet3.GAMEBOARD(game_id, first_slot, second_slot, third_slot, fourht_slot, fifth_slot, sixth_slot, seventh_slot, eihgth_slot, ninth_slot) VALUES (1,0,0,0,0,0,0,0,0,0);
 
 -- Table: ttadvancet3.RULES
 INSERT INTO ttadvancet3.RULES(name) VALUES('Open');
@@ -42,7 +42,7 @@ INSERT INTO ttadvancet3.RULES(name) VALUES('PlusWall');
 
 -- Final Fantasy Origins LV1
 
-INSERT INTO ttadvancet3.CARD (name, deck_id, element_id, level_number, top_value, bottom_value, right_value, left_value) VALUES('Hornet I/II/III', 1, 1, 1, 2, 2, 2, 1,);
+INSERT INTO ttadvancet3.CARD (name, deck_id, element_id, level_number, top_value, bottom_value, right_value, left_value) VALUES('Hornet I/II/III', 1, 1, 1, 2, 2, 2, 1);
 INSERT INTO ttadvancet3.CARD (name, deck_id, element_id, level_number, top_value, bottom_value, right_value, left_value) VALUES('Imp', 1, 1, 1, 4, 1, 4, 3);
 INSERT INTO ttadvancet3.CARD (name, deck_id, element_id, level_number, top_value, bottom_value, right_value, left_value) VALUES('LegEater', 1, 1, 1, 2, 2, 1, 4);
 INSERT INTO ttadvancet3.CARD (name, deck_id, element_id, level_number, top_value, bottom_value, right_value, left_value) VALUES('Mage', 1, 1, 1, 2, 1, 2, 6);
